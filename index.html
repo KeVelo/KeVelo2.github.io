@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>OnlyFit</title>
+    <link rel="shortcut icon" href="imagenes/favicon.png">
+    <link rel="stylesheet" href="estilos.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700,800&display=swap" rel="stylesheet"> 
+</head>
+
+<body>
+    <script src="script.js"></script>
+    <header>
+        <nav>
+            <ul>
+              <li><a href="#">Inicio</a></li>
+              <li><a href="#">Rutinas y dietas</a></li>
+              <li><a href="#">Datos saludables</a></li>
+              <li><a href="#">Agenda una cita</a></li>
+            </ul>
+        </nav>
+
+        <style>
+        ul{
+        list-style-type: none;
+        margin: 0;
+        padding: 0; 
+        }
+
+        li{
+        list-style:none ;
+        display: inline-block;
+        margin:auto;
+        }
+
+        a{      
+        position:relative;
+        display: block;
+        text-transform: uppercase;
+        margin:  0;
+        padding:  20px;
+        text-decoration:none;
+        color: #f1e9e9;
+        font-family: sans-serif;
+        font-size: 15px;
+        font-weight: 600;
+        }
+        </style>          
+ 
+        <div class="wave" style="height: 150px; overflow: hidden;">
+            <svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;">
+                <path d="M0.00,49.98 C150.00,150.00 349.20,-50.00 500.00,49.98 L500.00,150.00 L0.00,150.00 Z" style="stroke: none; fill: #121212;"></path>
+            </svg>
+        </div>
+        
+        <div class="console-container">Bienvenido <span id="text"></span><div class="console-underscore" id="console">_</div></div>
+    <script>
+    consoleText(['a un cambio de vida.', 'a OnlyFit'], 'text',['#fff','lightblue']);
+    function consoleText(words, id, colors) {
+    if (colors === undefined) colors = ['#fff'];
+    var visible = true;
+    var con = document.getElementById('console');
+    var letterCount = 1;
+    var x = 1;
+    var waiting = false;
+    var target = document.getElementById(id)
+    target.setAttribute('style', 'color:' + colors[0])
+    window.setInterval(function() {
+
+    if (letterCount === 0 && waiting === false) {
+      waiting = true;
+      target.innerHTML = words[0].substring(0, letterCount)
+      window.setTimeout(function() {
+        var usedColor = colors.shift();
+        colors.push(usedColor);
+        var usedWord = words.shift();
+        words.push(usedWord);
+        x = 1;
+        target.setAttribute('style', 'color:' + colors[0])
+        letterCount += x;
+        waiting = false;
+      }, 1000)
+
+    } else if (letterCount === words[0].length + 1 && waiting === false) {
+      waiting = true;
+      window.setTimeout(function() {
+        x = -1;
+        letterCount += x;
+        waiting = false;
+      }, 1000)
+
+    } else if (waiting === false) {
+      target.innerHTML = words[0].substring(0, letterCount)
+      letterCount += x;
+    }}, 120)
+
+  window.setInterval(function() {
+    if (visible === true) {
+      con.className = 'console-underscore hidden'
+      visible = false;
+
+    } else {
+      con.className = 'console-underscore'
+
+      visible = true;
+    }
+    }, 400)
+    }
+    </script>
+    </header>
+    
+    <main>
+        <section class="contenedor sobre-nosotros">
+            <h2 class="titulo">Conocenos</h2>
+            <div class="contenedor-sobre-nosotros">
+                <img src="imagenes/portada.jpeg" class="imagen-about-us">
+                <div class="contenido-textos">
+                    <h3> <span>1</span>Como nacio OnlyFit?</h3>
+                    <p>Este es un poryecto de un grupo de 5 estudiantes que un dia al querer estar en forma se enfretaron a la dura realidad de que en internet hay poca informacion verificada por lo que se propusieron desarrollar este proyecto de la mano de especialistas de la salud y del condicionamiento fisico </p>
+                    <h3><span>2</span>Nuestra mision:</h3>
+                    <p>Incentivar a las personas a transformar sus estilos de vida mediante la adopción de
+                        mejores hábitos alimenticios e información complementaria que les ayudará a darle un
+                        nuevo rumbo a sus vidas.
+                        </p>
+                    <h3><span>3</span>Nuestra vision: </h3>
+                    <p> convertirse en una plataforma referente sobre cómo tener una vida más sana y ser
+                        fuente de información sobre hábitos saludables.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section class="servicio">
+            <div class="contenedor">
+                <h2 class="titulo">Conoce nuestros servicios</h2>
+                <div class="galeria-port">
+                    <div class="imagen-port">
+                        <img src="imagenes/corriendo.png">
+                        <div class="hover-galeria">
+                            <img src="imagenes/favicon.png" alt="">
+                            <p class="badge">Encuentra tu rutina y dieta ideal</p>
+                        </div>
+                    </div>
+                    <div class="imagen-port">
+                        <img src="imagenes/comida.png">
+                        <div class="hover-galeria">
+                            <img src="imagenes/favicon.png" alt="">
+                            <p class="badge">Encuentra mucha informacion que transformara tu dia a dia</p>
+                        </div>
+                    </div>
+                    <div class="imagen-port">
+                        <img src="imagenes/chequeo.png">
+                        <div class="hover-galeria">
+                            <img src="imagenes/favicon.png" alt="">
+                            <p class="badge">Chequeos medicos especializados a muy bajo costo</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="socios contenedor">
+            <h2 class="titulo">Conoce a nuestros socios</h2>
+            <div class="cards">
+                <div class="card">
+                    <img src="imagenes/doctor.jpg">
+                    <div class="contenido-texto-card">
+                        <h4>Doctor Jaime Sanchez</h4>
+                        <p>Nuestro especialista en el area de salud, con codigo de junta medica de 4646464645, nos ayuda a verificar la informacion que se publica y esta a cargo de las consultas especilizadas.</p>
+                    </div>
+                </div>
+                
+    
+                <div class="card">
+                    <img src="imagenes/gimnasio.png">
+                    <div class="contenido-texto-card">
+                        <h4>Gimnasio BeFit</h4>
+                        <p>Nuestro gimnasio socio que cuengta con 20 sucursales alrededor de San Salvador, ofrece precios especiales a nuestros clientes.</p>
+                    </div>
+                </div>
+
+                
+    
+    
+            </div>
+        </section>
+
+</main>
+    
+    <footer>
+        <div class="container">
+            <h3>Contactanos</h3>
+            <div class="btn fb-btn">
+                <i class="fa fa-facebook" aria-hidden="true" id="fb"></i>
+            </div>
+            <div class="btn ig-btn">
+                <i class="fa fa-instagram" aria-hidden="true" id="ig"></i>
+            </div>
+            <div class="btn tw-btn">
+                <i class="fa fa-twitter" aria-hidden="true" id="tw"></i>
+            </div>
+        </div>
+      </footer>
+</body>
